@@ -32,7 +32,7 @@ if os.path.exists(_HERMES_ENV):
             line = line.strip()
             if line and not line.startswith("#") and "=" in line:
                 k, v = line.split("=", 1)
-                os.environ.setdefault(k.strip(), v.strip())
+                os.environ[k.strip()] = v.strip()
 
 API_BASE = os.environ.get("FEISHU_API_BASE_URL", "https://open.feishu.cn/open-apis")
 APP_ID = os.environ.get("FEISHU_APP_ID", "")
