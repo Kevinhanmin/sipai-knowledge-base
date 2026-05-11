@@ -39,8 +39,13 @@ SOURCES = [
     # 行业趋势
     {"keyword": "OEE TPM 精益生产 提升案例 2026", "category": "工具方法", "weight": "medium"},
     {"keyword": "智能工厂 数字化 转型 MES 案例 2026", "category": "行业案例", "weight": "medium"},
+    # AI工业智能
+    {"keyword": "AI 视觉质检 缺陷检测 制造业 落地案例 2026", "category": "AI工业智能", "weight": "high"},
+    {"keyword": "预测性维护 工业AI IoT 设备管理 2026", "category": "AI工业智能", "weight": "high"},
+    {"keyword": "工业大模型 垂直大模型 制造业 应用 2026", "category": "AI工业智能", "weight": "medium"},
+    {"keyword": "AI排产 智能调度 APS 生产计划 2026", "category": "AI工业智能", "weight": "medium"},
+    {"keyword": "数字孪生 AI仿真 产线优化 2026", "category": "AI工业智能", "weight": "medium"},
     # 技术前沿
-    {"keyword": "AI 机器学习 制造业 工业质检 2026", "category": "技术前沿", "weight": "medium"},
     {"keyword": "工业互联网 设备联网 IoT 工厂 2026", "category": "技术前沿", "weight": "medium"},
 ]
 
@@ -168,6 +173,16 @@ def web_search_simple(query: str, max_results: int = 3) -> list[dict]:
                     results.append({"title": f"[知识库] {title_match.group(1).strip()}", "snippet": f"来自思派知识库{fname.replace('案例库_','').replace('.md','')}行业案例", "url": ""})
                     if len(results) >= max_results:
                         break
+        
+        # 也检查AI工业智能笔记
+        if not results:
+            ai_note = os.path.join(OBSIDIAN_VAULT, "08_数字化与自动化", "AI工业智能应用.md")
+            if os.path.exists(ai_note):
+                with open(ai_note, "r") as f:
+                    content = f.read()
+                title_match = re.search(r'^#\s+(.+)$', content, re.MULTILINE)
+                if title_match:
+                    results.append({"title": f"[知识库] {title_match.group(1).strip()}", "snippet": "AI视觉质检/预测性维护/AI排产/工业大模型应用全览", "url": ""})
 
     return results[:max_results]
 
