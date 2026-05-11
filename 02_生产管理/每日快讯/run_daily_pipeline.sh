@@ -22,6 +22,14 @@ echo "--- Step 2: 知识库爬虫 ---" >> "$LOG"
 cd "$DIR" && /usr/bin/python3 daily_industry_crawler.py --email-founder >> "$LOG" 2>&1
 echo "" >> "$LOG"
 
+# Step 3: 推送到 GitHub（同步到用户本机Obsidian）
+echo "--- Step 3: GitHub同步 ---" >> "$LOG"
+cd "$HOME/Documents/精益智能工厂" && \
+  git add -A && \
+  git commit --allow-empty -m "🔄 每日自动同步 $(date '+%Y-%m-%d %H:%M')" && \
+  git push >> "$LOG" 2>&1
+echo "" >> "$LOG"
+
 # 完成
 echo "完成时间: $(date)" >> "$LOG"
 echo "==========================" >> "$LOG"
