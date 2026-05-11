@@ -1,0 +1,13 @@
+{
+  "accentColor": "#2e7d32",
+  "baseFontSize": 15,
+  "cssTheme": "Minimal",
+  "enabledCssSnippets": [],
+  "theme": "moonstone",
+  "translucency": false,
+  "interfaceFontFamily": "",
+  "textFontFamily": "",
+  "monospaceFontFamily": "",
+  "showViewHeader": true,
+  "nativeMenus": true
+}

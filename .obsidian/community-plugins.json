@@ -1,0 +1,11 @@
+{
+  "folderNote": {},
+  "folderOverview": {},
+  "paneRelief": {},
+  "dataview": {},
+  "templater": {
+    "templatesFolder": "99_模板库",
+    "dateFormat": "YYYY-MM-DD",
+    "timeFormat": "HH:mm"
+  }
+}

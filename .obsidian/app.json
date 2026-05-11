@@ -1,0 +1,36 @@
+{
+  "alwaysUpdateLinks": true,
+  "attachmentFolderPath": "99_模板库/_attachments",
+  "autoConvertHtml": true,
+  "communityPluginSortOrder": "download",
+  "communityThemesSortOrder": "download",
+  "defaultViewMode": "source",
+  "focusNewTab": true,
+  "livePreview": true,
+  "newFileLocation": "current",
+  "newLinkFormat": "shortest",
+  "promptDelete": false,
+  "readableLineLength": true,
+  "showLineNumber": true,
+  "showUnsupportedFiles": true,
+  "spellcheck": true,
+  "strictLineBreaks": false,
+  "tabSize": 4,
+  "trashOption": "system",
+  "useTab": true,
+  "communityHotkeys": [],
+  "enabledPlugins": [],
+  "hiddenFiles": [],
+  "pinnedFiles": [
+    "00_索引与导航/Home.md"
+  ],
+  "userIgnoreFilters": [
+    ".git/",
+    "node_modules/"
+  ],
+  "foldHeading": true,
+  "foldIndent": true,
+  "showFrontmatter": false,
+  "tagCache": {},
+  "vaultStatistics": false
+}

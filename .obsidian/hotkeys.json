@@ -1,0 +1,16 @@
+{
+  "alwaysNewTabForNewFile": true,
+  "alwaysNewTabForNewSearch": true,
+  "folderContextMenus": true,
+  "folderSort": "alphabetical",
+  "navigateBackward": "Ctrl-O",
+  "navigateForward": "Shift-Ctrl-O",
+  "openInNewTab": true,
+  "revealActiveFile": true,
+  "showFolderIcon": true,
+  "showRibbon": true,
+  "showStatusBar": true,
+  "tabFilesEnabled": true,
+  "tabFilesMaxOpen": 10,
+  "tabFilesNewTab": true
+}
