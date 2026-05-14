@@ -122,7 +122,7 @@ def convert_to_wechat_html(body: str) -> str:
 
     # Header
     html_parts.append(f'<div class="header">')
-    html_parts.append(f'<h1>📰 精益智能工厂 · 每日行业快讯</h1>')
+    html_parts.append(f'<h1>精益智能工厂 · 每日行业快讯</h1>')
     html_parts.append(f'<div class="date">{date_str}</div>')
     html_parts.append('</div>')
 
@@ -172,6 +172,13 @@ def convert_to_wechat_html(body: str) -> str:
     html_parts.append('<div class="footer">')
     html_parts.append('<p>📌 思派工业技术 · 精益智能工厂实战派</p>')
     html_parts.append('<p>视频号：思派精益智能工厂领航员 | 抖音：老K谈精益</p>')
+    html_parts.append('</div>')
+    
+    # Diagnosis CTA
+    html_parts.append('<div style="margin:30px auto 20px;max-width:400px;text-align:center;padding:16px 20px;background:linear-gradient(135deg,#1a365d,#2563eb);border-radius:12px">')
+    html_parts.append('<p style="color:#fff;font-size:15px;margin:0 0 10px;font-weight:600">🏭 免费工厂诊断</p>')
+    html_parts.append('<p style="color:rgba(255,255,255,0.85);font-size:13px;margin:0 0 12px">3分钟完成问卷，获取您的诊断报告</p>')
+    html_parts.append('<a href="https://ycntwzzv6rec.feishu.cn/share/base/form/shrcnIRICP6tOoaUCIliPhiMm3c" style="display:inline-block;background:#fff;color:#1a365d;padding:8px 24px;border-radius:20px;text-decoration:none;font-size:14px;font-weight:600">立即开始免费诊断 →</a>')
     html_parts.append('</div>')
     
     html_parts.append('</body></html>')
@@ -233,7 +240,7 @@ def main():
     # 提取标题
     date_str = frontmatter.get("date", datetime.now().strftime("%Y年%m月%d日"))
     weekday = frontmatter.get("weekday", "")
-    title = f"📰 每日行业快讯 · {date_str}"
+    title = f"每日行业快讯 {date_str}"
 
     # 提取摘要
     digest = extract_digest(body)

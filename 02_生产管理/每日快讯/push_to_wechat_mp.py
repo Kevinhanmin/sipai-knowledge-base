@@ -112,8 +112,10 @@ def check_token():
         return False
 
 
-def upload_image(filepath: str) -> str | None:
-    """上传图片作为封面，返回 media_id"""
+def upload_image(filepath: str):
+    """上传图片到公众号素材库，返回 media_id"""
+    import io
+    
     token = _get_access_token()
     url = f"https://api.weixin.qq.com/cgi-bin/material/add_material?access_token={token}&type=image"
     
@@ -159,6 +161,9 @@ def create_draft(html_path: str, publish: bool = False) -> dict:
     # 提取标题
     title_match = re.search(r'<h1>(.+?)</h1>', html_content)
     title = title_match.group(1) if title_match else "每日行业快讯"
+    # 去除标题中的emoji
+    title = re.sub(r'[\U0001F300-\U0010FFFF]', '', title).strip()
+    title = re.sub(r'[\u2600-\u27BF]', '', title).strip()
     
     # 提取摘要
     body_text = re.sub(r'<[^>]+>', '', html_content)
@@ -168,15 +173,14 @@ def create_draft(html_path: str, publish: bool = False) -> dict:
     # 构建图文素材
     article = {
         "title": title,
-        "thumb_media_id": WECHAT_THUMB_MEDIA_ID,
         "author": "老K",
         "digest": digest,
-        "show_cover_pic": 1 if WECHAT_THUMB_MEDIA_ID else 0,
-        "need_open_comment": 1,
-        "only_fans_can_comment": 0,
         "content": html_content,
         "content_source_url": "",  # 原文链接（可选）
     }
+    if WECHAT_THUMB_MEDIA_ID:
+        article["thumb_media_id"] = WECHAT_THUMB_MEDIA_ID
+        article["show_cover_pic"] = 1
     
     # 创建草稿（公众号新版接口）
     # 使用草稿箱 API: POST /cgi-bin/draft/add
